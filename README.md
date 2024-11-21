@@ -3,5 +3,5 @@
 ## コミットルール
 - コミットメッセージは日本語で書く
 - コミットメッセージは以下のフォーマットで書く
-  - `[add/fix/remove/refactor/...] メッセージ`
+  - `[add/feat/fix/remove/refactor/chore/...] メッセージ`
   - 例: `[add] 新しいファイルを追加`
