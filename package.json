@@ -26,5 +26,8 @@
   },
   "dependencies": {
     "aws-amplify": "^6.9.0"
+  },
+  "volta": {
+    "node": "23.3.0"
   }
 }
