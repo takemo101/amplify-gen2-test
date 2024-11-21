@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:check": "biome lint ./",
+    "format:check": "biome format ./",
+    "lint:fix": "biome format --write ./ && biome lint ./",
+    "fix": "biome check --write --unsafe ./ && biome lint ./"
   },
   "keywords": [],
   "author": "",
