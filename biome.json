@@ -52,5 +52,16 @@
     "formatter": {
       "quoteStyle": "single"
     }
+  },
+  "css": {
+    "parser": {
+      "cssModules": true
+    },
+    "formatter": {
+      "enabled": true,
+      "indentWidth": 2,
+      "indentStyle": "space",
+      "lineWidth": 80
+    }
   }
 }
