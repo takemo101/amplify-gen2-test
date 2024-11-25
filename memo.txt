@@ -33,5 +33,9 @@ $ amplify configure
 > 参考 https://pnpm.io/ja/cli/dlx
 > 参考 https://github.com/aws-samples/amplify-next-template
 
-#### 4. backend作成
-1. ``amplify init``でプロジェクトを初期化
+#### 4. sandboxの使い方
+1. ``pnpm ampx sandbox --profile=amplify-next``でsandboxを起動
+2. ``pnpm ampx sandbox delete --profile=amplify-next``でsandboxを削除
+
+#### 5. Lambda関数の追加
+1. ``pnpm add --save-dev @types/aws-lambda``パッケージを追加
