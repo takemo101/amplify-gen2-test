@@ -1,4 +1,6 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
+import { count } from '../functions/count/resource';
+import { sayHello } from '../functions/say-hello/resource';
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -7,11 +9,25 @@ specifies that any unauthenticated user can "create", "read", "update",
 and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
-    .model({
-      content: a.string(),
+  SayHelloResponse: a.customType({
+    message: a.string(),
+  }),
+  CountResponse: a.customType({
+    count: a.integer(),
+  }),
+  sayHello: a
+    .query()
+    .arguments({
+      name: a.string(),
     })
-    .authorization((allow) => [allow.guest()]),
+    .returns(a.ref('SayHelloResponse'))
+    .authorization((allow) => [allow.guest()])
+    .handler(a.handler.function(sayHello)),
+  count: a
+    .query()
+    .returns(a.ref('CountResponse'))
+    .authorization((allow) => [allow.guest()])
+    .handler(a.handler.function(count)),
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -19,7 +35,7 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: 'iam',
+    defaultAuthorizationMode: 'userPool',
   },
 });
 
