@@ -6,6 +6,6 @@ export const handler: Handler = async (event) => {
   const { name } = event.arguments;
 
   return {
-    message: `Hello, ${name}!`,
+    message: `HeRllo, ${name}!`,
   };
 };
